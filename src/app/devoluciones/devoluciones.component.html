@@ -1,0 +1,28 @@
+<h1>Devoluciones</h1>
+<input type="text" class="" style="width:250px" placeholder="Ingresar ID del producto"
+[(ngModel)]='busqueda'>
+<button class="btn btn-primary" style="margin-left: 10px;" (click)="buscar()">Buscar</button>
+<table class="table table-striped table-hover table-light">
+    <thead>
+        <tr>
+            <th>idProductos</th>
+            <th>Fecha</th>
+            <th>Cantidad</th>
+            <th>Precio</th>
+            <th>Total</th>
+            <th>Devolver</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let articulo of devolu">
+            <td>{{ articulo.idProducto }}</td>
+            <td>{{ articulo.Fecha }}</td>
+            <td>{{ articulo.Cantidad }}</td>
+            <td>{{ articulo.precio | currency }}</td>
+            <td>{{ articulo.precio * articulo.Cantidad | currency }}</td>
+            <td><button class="btn btn-danger" type="button" (click)="devolver()">Devolver</button></td>
+        </tr>
+    </tbody>
+
+</table>
+<button type="button" (click)="regresar()" class="btn btn-success">Regresar</button>
